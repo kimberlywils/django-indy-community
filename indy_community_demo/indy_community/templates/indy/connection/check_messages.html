@@ -4,29 +4,22 @@
 {% load static %}
 
 {% block main_content %}
-  <div class='inside-body'>
-    <div class='center-body'>
-      <div class='innercont-center-body'>
-        <div class='innercont-center-inner'>
-          <div class='form-cont'>
-            <h2>{% trans "Poll for Messages" %}</h2>
-            <div class='newsfeed-post-seperator'></div>
-            <form action="{% url 'check_messages' %}" method="POST">
+<div class='profile'>
+	<div class='profile-page'>
+		<h3>{% trans "Poll for Messages" %}</h3>
+		<div class='profile-page-content'>
+        	<form action="{% url 'check_messages' %}" method="POST">
               {% csrf_token %}
               {% for field in form %}
-                <div>
-                  <h5>{{ field.label_tag }}</h5>
+                  <h6>{{ field.label_tag }}</h6>
                   {{ field }}
                   {% for error in field.errors %}
                     <p style="color: red">{{ error }}</p>
                   {% endfor %}
-                </div>
               {% endfor %}
               <button class='btn' type="submit">Submit</button>
             </form>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
+	</div>
+</div>
 {% endblock %}

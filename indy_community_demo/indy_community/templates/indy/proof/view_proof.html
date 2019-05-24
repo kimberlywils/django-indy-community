@@ -4,23 +4,16 @@
 
 {% block page_title %} {% trans "View Proof" %} {% endblock %}
 
-{% block main_content %} 
-
-  <div class='inside-body'>
-    <div class='center-body'>
-      <div class='innercont-center-body'>
-        <div class='innercont-center-inner'>
-          <div class='form-cont'>
-            <h2>Proof Received</h2>
-              <div>
-                {% for attr, value in conversation.data.items %}
-                <h4>{{ attr }}</h4>
-                <p>{{ value }}</p>
-                {% endfor %}
-              </div>
-          </div>
+{% block main_content %}
+ <div class='profile'>
+	<div class='profile-page'>
+		<h3>Proof Received</h3>
+		<div class='profile-page-content'>
+			{% for attr, value in conversation.data.items %}
+			<h6>{{ attr }}</h6>
+			<p>{{ value }}</p>
+			{% endfor %}
         </div>
-      </div>
-    </div>
-  </div>
+	</div>
+</div>
 {% endblock %}

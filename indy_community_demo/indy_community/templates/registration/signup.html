@@ -4,29 +4,33 @@
 {% load static %}
 
 {% block main_content %}
-  <div class='inside-body'>
-    <div class='center-body'>
-      <div class='innercont-center-body'>
-        <div class='innercont-center-inner'>
-          <div class='form-cont'>
-            <h2>Signup</h2>
-            <div class='newsfeed-post-seperator'></div>
-            <form method="POST">
-              {% csrf_token %}
-              {% for field in form %}
-                <div>
-                  <h5>{{ field.label_tag }}</h5>
-                  {{ field }}
-                  {% for error in field.errors %}
-                    <p style="color: red">{{ error }}</p>
-                  {% endfor %}
-                </div>
-              {% endfor %}
-              <button class='btn' type="submit">Sign up</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class='landing-page'>
+	<div class='signup-cont'>
+		<div class='atria-logo'>
+			<img src="{% static "/anon/Anon5-greylime.png" %}">
+		</div>
+
+		<div class='signup-dropdown'>
+			<div class='signup-dropdown-inner'>
+				<h5>Signup</h5>
+				<form method="POST">
+					{% csrf_token %}
+					{% for field in form %}
+					<div class='signup-input-cont'>
+						<h6>{{ field.label_tag }}</h6>
+						{{ field }}
+						{% for error in field.errors %}
+						<p style="color: red">{{ error }}</p>
+						{% endfor %}
+					</div>
+					{% endfor %}
+					<div class='btn-signup-cont'>
+						<button class='btn' type="submit">Sign up</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}
